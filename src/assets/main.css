@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input-text {
+    @apply bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 block w-full px-3 py-1.5 duration-150;
+  }
+
+  .button-form {
+    @apply px-4 py-1.5 font-medium bg-blue-700 text-white rounded-md hover:bg-blue-800 w-full;
+  }
+
+  .nav {
+    @apply -translate-y-1 transition-all duration-150;
+  }
+}
