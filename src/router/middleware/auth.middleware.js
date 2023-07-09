@@ -8,9 +8,25 @@ export const authMiddleware = async (to) => {
       return { name: 'login' }
     }
   } else {
-    if (to.meta.group === 'landing' || to.meta.group === 'auth') {
-      // redirect to dashboard once authenticated and trying to access page/route that has a group name of auth and landing which is not require authentication and that's not allowed!
-      return { name: 'dashboard' }
+    //redirect to dashboard once trying access route/page that will need admin access
+    if (!authStore.isAdmin()) {
+      if (to.meta.group === 'landing' || to.meta.group === 'auth') {
+        // redirect to dashboard once authenticated and trying to access page/route that has a group name of auth and landing which is not require authentication and that's not allowed!
+        return { name: 'dashboard' }
+      }
+
+      if (to.meta.admin) {
+        return { name: 'dashboard' }
+      }
+    } else {
+      if (to.meta.group === 'landing' || to.meta.group === 'auth') {
+        // redirect to dashboard once authenticated and trying to access page/route that has a group name of auth and landing which is not require authentication and that's not allowed!
+        return { name: 'productManagement' }
+      }
+
+      if (to.meta.customer) {
+        return { name: 'productManagement' }
+      }
     }
   }
 }

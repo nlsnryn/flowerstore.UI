@@ -34,7 +34,8 @@ const router = createRouter({
       name: 'dashboard',
       component: () => import('@/views/dashboard/DashboardView.vue'),
       meta: {
-        requiredAuth: true
+        requiredAuth: true,
+        customer: true
       }
     },
     {
@@ -43,7 +44,8 @@ const router = createRouter({
       component: () => import('@/views/dashboard/ProductView.vue'),
       props: true,
       meta: {
-        requiredAuth: true
+        requiredAuth: true,
+        customer: true
       }
     },
     {
@@ -51,7 +53,8 @@ const router = createRouter({
       name: 'orderSuccess',
       component: () => import('@/views/dashboard/OrderSuccessView.vue'),
       meta: {
-        requiredAuth: true
+        requiredAuth: true,
+        customer: true
       }
     },
     {
@@ -59,32 +62,36 @@ const router = createRouter({
       name: 'orders',
       component: () => import('@/views/order/OrderView.vue'),
       meta: {
-        requiredAuth: true
+        requiredAuth: true,
+        customer: true
       }
     },
     {
       path: '/product-management',
       name: 'productManagement',
-      component: () => import('@/views/product/ProductManagementView.vue'),
+      component: () => import('@/views/product-management/ProductManagementView.vue'),
       meta: {
-        requiredAuth: true
+        requiredAuth: true,
+        admin: true
       }
     },
     {
       path: '/product-management/add-product',
       name: 'addProduct',
-      component: () => import('@/views/product/AddProductView.vue'),
+      component: () => import('@/views/product-management/AddProductView.vue'),
       meta: {
-        requiredAuth: true
+        requiredAuth: true,
+        admin: true
       }
     },
     {
       path: '/product-management/:id/edit-product',
       name: 'editProduct',
-      component: () => import('@/views/product/EditProductView.vue'),
+      component: () => import('@/views/product-management/EditProductView.vue'),
       props: true,
       meta: {
-        requiredAuth: true
+        requiredAuth: true,
+        admin: true
       }
     }
   ]

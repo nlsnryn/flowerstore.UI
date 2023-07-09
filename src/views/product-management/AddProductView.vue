@@ -4,8 +4,10 @@ import DefaultInput from '@/components/DefaultInput.vue'
 import DefaultButton from '@/components/DefaultButton.vue'
 import { useProductStore } from '@/stores/product.store'
 import { RouterLink } from 'vue-router'
+import { useErrorStore } from '@/stores/error.store'
 
 const productStore = useProductStore()
+const errorStore = useErrorStore()
 const form = reactive({
   product_name: '',
   product_description: '',
@@ -31,17 +33,23 @@ function storeProduct(form) {
         <router-link :to="{ name: 'productManagement' }">
           <button class="flex items-center gap-2 text-xl hover:text-blue-800 text-blue-700">
             <i class="fa-solid fa-arrow-left"></i>
-            <span class="text-medium">Back</span>
+            <span class="text-sm font-medium uppercase tracking-wide">Back</span>
           </button>
         </router-link>
       </div>
 
       <h1 class="text-blue-700 font-semibold text-3xl mb-10">Add new product</h1>
+
+      <div v-if="errorStore.hasErrors" class="max-w-md mx-auto mb-2 px-2">
+        <span class="text-xs font-medium uppercase tracking-wide text-red-500">{{
+          errorStore.state.message
+        }}</span>
+      </div>
       <form
         @submit.prevent="storeProduct(form)"
         class="border-2 border-blue-700 rounded-md px-6 py-5 mt-10"
       >
-        <label for="prodname">Product Name:</label>
+        <label for="prodname" class="table-text">Product Name:</label>
         <default-input
           type="text"
           name="productName"
@@ -54,7 +62,7 @@ function storeProduct(form) {
         />
 
         <div class="flex flex-col">
-          <label for="proddescription">Product Description:</label>
+          <label for="proddescription" class="table-text">Product Description:</label>
           <textarea
             type="text"
             name="prodDescription"
@@ -65,7 +73,7 @@ function storeProduct(form) {
           ></textarea>
         </div>
 
-        <label for="quantity">Quantity:</label>
+        <label for="quantity" class="table-text">Quantity:</label>
         <default-input
           type="number"
           name="quantity"
@@ -77,7 +85,7 @@ function storeProduct(form) {
           required
         />
 
-        <label for="price">Price:</label>
+        <label for="price" class="table-text">Price:</label>
         <default-input
           type="number"
           name="price"

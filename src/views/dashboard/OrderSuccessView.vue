@@ -1,5 +1,6 @@
 <script setup>
 import DefaultButton from '@/components/DefaultButton.vue'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -15,7 +16,9 @@ import DefaultButton from '@/components/DefaultButton.vue'
         step of the way. Thank you for choosing FlowerstorePH.
       </p>
 
-      <default-button class="mt-10">Return to dashboard</default-button>
+      <router-link :to="{ name: 'dashboard' }">
+        <default-button class="mt-10">Return to dashboard</default-button>
+      </router-link>
     </div>
   </section>
 </template>
