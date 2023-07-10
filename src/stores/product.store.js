@@ -4,7 +4,6 @@ import router from '../router'
 import { ref } from 'vue'
 import { getCredentials } from '@/helper/LocalStorage'
 import { useErrorStore } from './error.store'
-import { data } from 'autoprefixer'
 
 const useProductStore = defineStore('product', () => {
   const errorStore = useErrorStore()

@@ -77,7 +77,7 @@ function getErrorBorder(field) {
 </script>
 
 <template>
-  <section class="flex justify-center items-center min-h-screen mt-20">
+  <section class="flex justify-center items-center min-h-screen">
     <div class="max-w-md w-full">
       <div v-if="errorStore.hasErrors" class="max-w-md mx-auto mb-2 px-2">
         <span class="text-xs font-medium uppercase tracking-wide text-red-500">{{
@@ -168,33 +168,39 @@ function getErrorBorder(field) {
           errors.password_confirmation
         }}</span>
 
-        <label for="number">Mobile number:</label>
-        <default-input
-          type="text"
-          name="mobile_number"
-          id="number"
-          placeholder="09305782924"
-          :modelValue="mobile_number"
-          @newValue="(newValue) => (mobile_number = newValue)"
-          :errorBorder="getErrorBorder('mobile_number')"
-        />
-        <span v-show="errors.mobile_number" class="text-xs ml-1 text-red-700 block mb-2">{{
-          errors.mobile_number
-        }}</span>
+        <div class="flex gap-3">
+          <div class="flex flex-col w-1/2">
+            <label for="number">Mobile number:</label>
+            <default-input
+              type="text"
+              name="mobile_number"
+              id="number"
+              placeholder="09305782924"
+              :modelValue="mobile_number"
+              @newValue="(newValue) => (mobile_number = newValue)"
+              :errorBorder="getErrorBorder('mobile_number')"
+            />
+            <span v-show="errors.mobile_number" class="text-xs ml-1 text-red-700 block mb-2">{{
+              errors.mobile_number
+            }}</span>
+          </div>
 
-        <label for="address">Address:</label>
-        <default-input
-          type="text"
-          name="address"
-          id="address"
-          placeholder="Libid Binangonan Rizal"
-          :modelValue="address"
-          @newValue="(newValue) => (address = newValue)"
-          :errorBorder="getErrorBorder('address')"
-        />
-        <span v-show="errors.address" class="text-xs ml-1 text-red-700 block mb-2">{{
-          errors.address
-        }}</span>
+          <div class="flex flex-col w-1/2">
+            <label for="address">Address:</label>
+            <default-input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="Libid Binangonan Rizal"
+              :modelValue="address"
+              @newValue="(newValue) => (address = newValue)"
+              :errorBorder="getErrorBorder('address')"
+            />
+            <span v-show="errors.address" class="text-xs ml-1 text-red-700 block mb-2">{{
+              errors.address
+            }}</span>
+          </div>
+        </div>
 
         <default-button type="submit" class="mt-5">REGISTER</default-button>
         <p class="text-sm text-blue-700 mt-2 font-medium">

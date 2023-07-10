@@ -32,7 +32,7 @@ onUnmounted(() => {})
       <h1>Loading ...</h1>
     </div>
   </div>
-  <section v-else class="mt-28">
+  <section v-else class="mt-28 mb-14">
     <header class="font-medium text-blue-700 mb-10">
       <div class="mb-5">
         <h1 class="font-medium text-sm tracking-wide uppercase">
