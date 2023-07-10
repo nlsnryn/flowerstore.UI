@@ -3,20 +3,33 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <section class="flex justify-center items-center h-screen">
-    <div class="flex flex-col">
-      <div>
-        <h1 class="text-blue-700 text-4xl font-bold">Flower Store PH</h1>
-        <h2 class="text-blue-700 2xl font-semibold">Metro Manila's #1 Online Gift Store</h2>
-      </div>
+  <section class="flex items-center h-screen">
+    <div class="max-w-5xl w-full mx-auto">
+      <div class="flex flex-col">
+        <div>
+          <h1 class="text-blue-700 text-7xl font-bold">FlowerStore PH</h1>
+          <h2 class="text-blue-700 text-2xl font-semibold">Metro Manila's #1 Online Gift Store</h2>
+        </div>
 
-      <div class="flex gap-2 mt-5">
-        <router-link :to="{ name: 'login' }" class="button-form text-center uppercase w-fit"
-          >Login</router-link
-        >
-        <router-link :to="{ name: 'register' }" class="button-form text-center uppercase w-fit"
-          >Register</router-link
-        >
+        <p class="text-blue-700 text-lg mt-6">
+          Welcome to our online flower store, where beauty and fragrance intertwine to create
+          unforgettable moments. Step into a virtual garden of blooms, where nature's delicate
+          wonders are just a click away. Our carefully curated collection of flowers embodies
+          elegance, emotion, and enchantment, making every bouquet a masterpiece.
+        </p>
+
+        <div class="flex gap-3 mt-10">
+          <router-link
+            :to="{ name: 'login' }"
+            class="button-form px-5 py-2 text-center uppercase w-fit"
+            >Login your account</router-link
+          >
+          <router-link
+            :to="{ name: 'register' }"
+            class="button-form px-10 py-2 text-center uppercase w-fit"
+            >Create an account</router-link
+          >
+        </div>
       </div>
     </div>
   </section>
