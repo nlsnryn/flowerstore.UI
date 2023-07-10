@@ -1,6 +1,6 @@
 # flowerstore.UI
 
-This project is for flowerstorePH Fullstack Developer Exam. I use Vue, JavaScript, Tailwind CSS, Axios, Pinia, Zod/Vee-validate for Frontend
+This fullstack e-commerce project is for FlowerstorePH Fullstack Developer Exam. I use Vue, JavaScript, Tailwind CSS, Axios, Pinia, Zod/Vee-validate for validation form for Client and Laravel API for Server, repository https://github.com/nlsnryn/flowerstore.API
 
 ## Project Setup
 
